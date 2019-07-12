@@ -1,0 +1,49 @@
+.header
+  .header__title
+    .header__title__text
+      猫アルバム！！
+    = image_tag "nako.png", size:"100x100", class:"header__title__image"
+  .header__links
+    - if user_signed_in?
+      = link_to  destroy_user_session_path, method: :delete do
+        = fa_icon 'ban'
+    - else
+      =link_to new_user_session_path, class: 'header__links__btn-log_in' do
+        = fa_icon 'ban'
+      =link_to new_user_registration_path, class: 'header__links__btn-sign_in'do
+        = fa_icon 'ban'
+    =link_to "https://www.facebook.com/", class: "header__links__btn-facebook" do
+      = fa_icon 'facebook'
+      %span<>
+    =link_to "https://twitter.com/", class: "header__links__btn-twitter" do
+      = fa_icon 'twitter'
+      %span<>
+    =link_to "https://www.instagram.com/", class: "header__links__btn-instagram" do
+      = fa_icon 'instagram'
+      %span<>
+.contents
+  .contents__main
+    .contents__main__albums1
+      .contents__main__albums1__image
+      = image_tag "382a59df3cecd263c55eff1379caa112-740x429.jpg", size:"300x300"
+      .contents__main__albums1__comment
+        かわいい！！
+    .contents__main__albums2
+      .contents__main__albums2__image
+      = image_tag "article-main-img_01-005.png", size:"300x300"
+      .contents__main__albums2__comment
+        Awesome!!
+  .contents__comments
+    - @tweets.each do |tweet|
+      = tweet.text
+      = link_to "/tweets/#{tweet.id}/edit", method: :get do
+        = fa_icon 'ban'
+      = link_to "/tweets/#{tweet.id}", method: :delete do
+        = fa_icon 'ban'
+  .contents__form
+    = form_for @tweet do |f|
+      = f.text_area :text, class: "contents__form__text", placeholder: "ブログてしりませんでした！猫を見て熱く語れ！"
+      %label.upload-label{for: "contents__form__upload-icon"}
+        %i.fa.fa-picture-o
+        = f.file_field :image, id: "contents__form__upload-icon"
+      = f.submit "Send", class: "contents__form__submit"

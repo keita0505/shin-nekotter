@@ -1,0 +1,87 @@
+.header{
+  background-color: lightpink;
+  height: 150px;
+  width: 100vw;
+  &__title{
+    float:left;
+    line-height: 150px;
+    margin-left: 40px;
+    &__text{
+      float: left;
+      font-size: 50px;
+      color: #ffffff;
+      
+    }
+    &__image{
+      float: left;
+      margin-top: 30px;
+    }
+  }
+  &__links{
+    display: inline-flex;
+    float: right;
+    line-height: 150px;
+    width: 200px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    &__btn-log_in{
+      font-size: 30px;
+      color: #FFFFFF;
+    }
+    &__btn-sign_in{
+      font-size: 30px;
+      color: #FFFFFF;
+    }
+    &__btn-facebook{
+      font-size: 30px;
+      color: #FFFFFF;
+    }
+    &__btn-twitter{
+      font-size: 30px;
+      color: #FFFFFF;
+    }
+    &__btn-instagram{
+      font-size: 30px;
+      color: #FFFFFF;
+    }
+  }
+}
+.contents{
+  background-image: url(istockphoto-1008277956-1024x1024.jpg);
+  height: calc(100vh - 150px);
+  width: 100vw;
+  &__main{
+    display: inline-flex;
+    &__albums1{
+      &__image{}
+      &__comment{}
+    }
+    &__albums2{
+      &__image{}
+      &__comment{}
+    }
+  }
+  &__comments{
+    font-size: 30px;
+  }
+  &__form{
+    position: absolute;
+    bottom:10px;
+    width: 100vw;
+    float:right;
+    &__upload-icon{
+      display: none;
+    }
+    &__text{
+      font-size: 20px;
+    }
+    &__submit{
+      height: 50px;
+      width: 70px;
+      color: aqua;
+    }
+  }
+}
+#contents__form__upload-icon{
+  display: none;
+}

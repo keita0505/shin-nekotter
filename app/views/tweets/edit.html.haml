@@ -1,0 +1,3 @@
+= form_for @tweet,:url=>{:action => "patch"} do |f|
+  = f.text_area :text, placeholder: "編集！"
+  = f.submit "Send"
